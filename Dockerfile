@@ -4,7 +4,8 @@ FROM python:3.13-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \n    TRIAGE_EVAL_DIR=/app/eval
+    PIP_NO_CACHE_DIR=1 \
+    TRIAGE_EVAL_DIR=/app/eval
 
 RUN useradd --create-home --uid 1000 triage
 WORKDIR /app
