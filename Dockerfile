@@ -18,5 +18,5 @@ RUN pip install .
 USER triage
 VOLUME ["/app/reports"]
 
-ENTRYPOINT ["enjin-triage"]
+ENTRYPOINT ["tege-issue-agent"]
 CMD ["--help"]

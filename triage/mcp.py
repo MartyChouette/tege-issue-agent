@@ -100,7 +100,7 @@ class McpClient:
             {
                 "protocolVersion": PROTOCOL_VERSION,
                 "capabilities": {},
-                "clientInfo": {"name": "enjin-triage", "version": "0.1.0"},
+                "clientInfo": {"name": "tege-issue-agent", "version": "0.1.0"},
             },
         )
         self.server_info = result or {}

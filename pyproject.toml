@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "enjin-triage"
+name = "tege-issue-agent"
 version = "0.1.0"
 description = "Reads the bug reports the TEGE editor files on GitHub, groups duplicates, and investigates them through the editor's MCP server."
 readme = "README.md"
@@ -17,7 +17,7 @@ dependencies = [
 dev = ["pytest>=8", "ruff>=0.6"]
 
 [project.scripts]
-enjin-triage = "triage.cli:main"
+tege-issue-agent = "triage.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["triage*"]

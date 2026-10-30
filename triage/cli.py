@@ -1,9 +1,9 @@
 """Command line entry point.
 
-    enjin-triage run            fetch issues, group, investigate each group, write a report
-    enjin-triage group          fetch and group only (no editor needed)
-    enjin-triage tools          show what the editor's MCP server exposes and what is allowed
-    enjin-triage eval           score the grouping heuristic (and optionally a model) offline
+    tege-issue-agent run            fetch issues, group, investigate each group, write a report
+    tege-issue-agent group          fetch and group only (no editor needed)
+    tege-issue-agent tools          show what the editor's MCP server exposes and what is allowed
+    tege-issue-agent eval           score the grouping heuristic (and optionally a model) offline
 
 Nothing is posted anywhere unless --post is given. The report always lands in reports/.
 """
@@ -45,7 +45,7 @@ def _common(p: argparse.ArgumentParser) -> None:
 
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(
-        prog="enjin-triage",
+        prog="tege-issue-agent",
         description=__doc__,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

@@ -1,4 +1,5 @@
-"""Thin wrapper so `python eval/run_eval.py` works from a checkout. Same as `enjin-triage eval`."""
+"""Thin wrapper so `python eval/run_eval.py` works from a checkout. Same as
+`tege-issue-agent eval`."""
 
 import sys
 

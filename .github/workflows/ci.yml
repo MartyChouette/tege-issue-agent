@@ -20,11 +20,11 @@ jobs:
       - run: pytest -q
       # The grouping heuristic is scored on every push. The threshold is the floor it
       # already clears; a change that drops below it fails the build.
-      - run: enjin-triage eval --min-f1 0.85 --verbose
+      - run: tege-issue-agent eval --min-f1 0.85 --verbose
 
   docker:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: docker build -t enjin-triage .
-      - run: docker run --rm enjin-triage eval --min-f1 0.85
+      - run: docker build -t tege-issue-agent .
+      - run: docker run --rm tege-issue-agent eval --min-f1 0.85

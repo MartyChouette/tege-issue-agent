@@ -1,4 +1,4 @@
-# enjin-triage
+# tege-issue-agent
 
 The TEGE editor files its own bug reports. A person hits "report a bug" in the feedback
 panel, or the crash handler catches an exception, and a GitHub issue appears with the engine
@@ -13,10 +13,10 @@ diagnostics, and writes up what it found and what it would change. The output is
 report. Posting back to GitHub is a flag, off by default.
 
 ```
-enjin-triage run                    # fetch, group, investigate, write reports/triage-<date>.md
-enjin-triage group                  # grouping only, no editor needed
-enjin-triage tools                  # what the editor exposes and what the agent may touch
-enjin-triage eval --verbose         # score the grouping heuristic on the labeled set
+tege-issue-agent run                    # fetch, group, investigate, write reports/triage-<date>.md
+tege-issue-agent group                  # grouping only, no editor needed
+tege-issue-agent tools                  # what the editor exposes and what the agent may touch
+tege-issue-agent eval --verbose         # score the grouping heuristic on the labeled set
 ```
 
 ## How it decides two issues are one bug
@@ -84,18 +84,18 @@ format are plain functions with tests, so adding a third backend is one class.
 ```
 pip install -e .[dev]
 pytest
-enjin-triage eval --verbose
-enjin-triage run --provider fake --from-files eval/issues.json
+tege-issue-agent eval --verbose
+tege-issue-agent run --provider fake --from-files eval/issues.json
 ```
 
 Against the real repo, with the editor open and Settings > System > MCP Server turned on:
 
 ```
 export ANTHROPIC_API_KEY=...        # or: --provider ollama
-enjin-triage tools                  # confirms the editor is reachable
-enjin-triage run --only 19          # one issue, read-only
-enjin-triage run                    # everything open
-enjin-triage run --post             # asks before posting; --yes skips the prompt
+tege-issue-agent tools                  # confirms the editor is reachable
+tege-issue-agent run --only 19          # one issue, read-only
+tege-issue-agent run                    # everything open
+tege-issue-agent run --post             # asks before posting; --yes skips the prompt
 ```
 
 GitHub reads go through the `gh` CLI's token if you are logged in, or `GITHUB_TOKEN`.

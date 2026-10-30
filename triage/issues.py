@@ -195,7 +195,7 @@ def _token(explicit: str | None) -> str | None:
 def _request(url: str, token: str | None, method: str = "GET", data: dict | None = None):
     headers = {
         "Accept": "application/vnd.github+json",
-        "User-Agent": "enjin-triage",
+        "User-Agent": "tege-issue-agent",
         "X-GitHub-Api-Version": "2022-11-28",
     }
     if token:
