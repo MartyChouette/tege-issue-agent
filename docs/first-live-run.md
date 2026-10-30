@@ -12,9 +12,12 @@ and it stayed inside the read-only tool set.
 
 What it could not do: no project was open in the editor, so the script and scene tools came
 back empty or with errors, and both proposals are thin. #18 was marked "needs more
-information" and named the right file. #19 is a real Linux build failure (the shader codegen
-step reads `oit_accum.frag.spv` before it exists); the model called it an engine-side change
-but proposed a re-clone, which would not fix it.
+information" and named the right file. #19 was already fixed on main before this run
+(f26a8a70, 2026-09-24): `oit_accum.frag.spv` is `triangle.frag` compiled with `-DENJIN_OIT`,
+and nothing produced it until that commit added a CMake rule. The model's re-clone advice
+would have picked up the fix, but it never checked commit history, so it could not say the
+issue was already resolved. Checking recent commits against an issue's date belongs in the
+agent's tools.
 
 Next run: open a project in the editor first, and compare qwen3:8b against a larger model on
 the same two issues.
