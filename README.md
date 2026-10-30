@@ -149,3 +149,9 @@ tests/          everything above, offline
 ```
 
 MIT license. Built by marty scott alongside [TEGE](https://github.com/MartyChouette/TEGE).
+
+## Status
+
+Tested offline (32 tests, the labeled eval gated in CI, a Docker build in CI) and run once live
+on 2026-10-30 against the real TEGE issues and the running editor with a local model. What that
+run got right and what it could not do is written up in `docs/first-live-run.md`.
