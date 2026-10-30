@@ -1,0 +1,22 @@
+{
+  "notes": [
+    "Labeled by hand on 2026-10-14. Each inner list is one underlying defect.",
+    "101+102: same validation error, different descriptor handle. Addresses change, bug does not.",
+    "104+105: same missing shader quoted at two path depths and in two report styles.",
+    "107+108: a user report and a maintainer note about one UI limitation. Titles share no words; only the meaning matches.",
+    "110+111: one streaming latency report filed twice. 112 is a different symptom in the same system and must stay apart.",
+    "113+114: two UI gestures, one VK_ERROR_DEVICE_LOST on swapchain recreate. The console tail is the tell."
+  ],
+  "groups": [
+    [101, 102],
+    [103],
+    [104, 105],
+    [106],
+    [107, 108],
+    [109],
+    [110, 111],
+    [112],
+    [113, 114],
+    [115]
+  ]
+}

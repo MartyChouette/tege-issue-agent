@@ -1,0 +1,107 @@
+[
+  {
+    "number": 101,
+    "title": "[Crash] Vulkan validation: vkCmdDrawIndexed(): descriptor set 0x2a7f1c40 was destroyed",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/101",
+    "labels": [{"name": "bug"}, {"name": "type:Crash"}, {"name": "severity:Critical"}, {"name": "auto-submitted"}],
+    "body": "This issue was automatically submitted by the TEGE crash handler.\n\n```\nException: Vulkan validation: vkCmdDrawIndexed(): descriptor set 0x2a7f1c40 was destroyed\n  #0 Enjin::VulkanRenderer::DrawMesh (VulkanRenderer.cpp:1812)\n  #1 Enjin::RenderSystem::Submit (RenderSystem.cpp:644)\n  #2 Enjin::Application::Frame (Application.cpp:311)\n```\n\n---\n*Auto-submitted from TEGE Editor crash handler*\n"
+  },
+  {
+    "number": 102,
+    "title": "[Crash] Vulkan validation: vkCmdDrawIndexed(): descriptor set 0x5be0a900 was destroyed",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/102",
+    "labels": [{"name": "bug"}, {"name": "type:Crash"}, {"name": "severity:Critical"}, {"name": "auto-submitted"}],
+    "body": "This issue was automatically submitted by the TEGE crash handler.\n\n```\nException: Vulkan validation: vkCmdDrawIndexed(): descriptor set 0x5be0a900 was destroyed\n  #0 Enjin::VulkanRenderer::DrawMesh (VulkanRenderer.cpp:1812)\n  #1 Enjin::RenderSystem::Submit (RenderSystem.cpp:644)\n```\n\n---\n*Auto-submitted from TEGE Editor crash handler*\n"
+  },
+  {
+    "number": 103,
+    "title": "[Crash] std::out_of_range: vector::_M_range_check: __n (which is 7) >= this->size() (which is 7)",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/103",
+    "labels": [{"name": "bug"}, {"name": "type:Crash"}, {"name": "severity:Critical"}, {"name": "auto-submitted"}],
+    "body": "This issue was automatically submitted by the TEGE crash handler.\n\n```\nException: std::out_of_range: vector::_M_range_check: __n (which is 7) >= this->size() (which is 7)\n  #0 Enjin::LevelStreaming::Unload (LevelStreaming.cpp:402)\n```\n\n---\n*Auto-submitted from TEGE Editor crash handler*\n"
+  },
+  {
+    "number": 104,
+    "title": "Missing file: TEGE/Engine/shaders/oit_accum.frag",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/104",
+    "labels": [],
+    "body": "Fresh clone, Windows, CMake configure runs but the shader compile step fails because Engine/shaders/oit_accum.frag is not in the repo. The .vert next to it is there."
+  },
+  {
+    "number": 105,
+    "title": "[Bug] Build fails: oit_accum.frag not found",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/105",
+    "labels": [{"name": "bug"}, {"name": "type:Build"}, {"name": "severity:High"}],
+    "body": "**Type:** Build  \n**Severity:** High  \n\n## Description\nMissing file: Engine/shaders/oit_accum.frag. compile_shaders.sh stops at the order-independent transparency pass.\n\n## Steps to Reproduce\n1. git clone\n2. cmake --preset linux\n3. cmake --build\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Linux x86_64 |\n| Draw Calls | 0 |\n| Entities | 0 |\n| Triangles | 0 |\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 106,
+    "title": "Missing file: builtin_templates/platformer/fonts/ui_font.ttf",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/106",
+    "labels": [],
+    "body": "The platformer template references fonts/ui_font.ttf but the file is not shipped. The HUD renders with the fallback face."
+  },
+  {
+    "number": 107,
+    "title": "[Bug] HUD text always uses the editor font",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/107",
+    "labels": [{"name": "bug"}, {"name": "type:UI"}, {"name": "severity:Medium"}],
+    "body": "**Type:** UI  \n**Severity:** Medium  \n\n## Description\nI set a font asset on my HUD text component and the exported game still draws it with the editor's face.\n\n## Expected Behavior\nThe font I picked.\n\n## Actual Behavior\nEditor font in the exported build and in play mode.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Windows 11 |\n| GPU | NVIDIA GeForce RTX 3060 |\n| FPS | 143 |\n| Draw Calls | 212 |\n| Entities | 48 |\n| Triangles | 91022 |\n| Scene | scenes/hud_test.enjin |\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 108,
+    "title": "Games cannot set their own HUD font: UISystem is locked to the editor's face",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/108",
+    "labels": [{"name": "enhancement"}],
+    "body": "UISystem::DrawText takes the font from EditorTheme instead of from the component. There is no path for a game to supply a face at all. Needs a font field on the text component and a loader in the runtime."
+  },
+  {
+    "number": 109,
+    "title": "[Bug] Play mode hangs when the scene has no entities",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/109",
+    "labels": [{"name": "bug"}, {"name": "type:Editor"}, {"name": "severity:High"}],
+    "body": "**Type:** Editor  \n**Severity:** High  \n\n## Description\nNew scene, press play, the editor stops responding. Have to kill it.\n\n## Steps to Reproduce\n1. File > New Scene\n2. Press Play\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Windows 11 |\n| Draw Calls | 0 |\n| Entities | 0 |\n| Triangles | 0 |\n\n<details><summary>Console Log (last 3 lines)</summary>\n\n```\n[INFO] [Editor] Entering play mode\n[WARN] [ECS] No camera entity; using default\n[ERROR] [Scripting] Script runtime: no entry point registered, waiting forever\n```\n</details>\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 110,
+    "title": "[Bug] Level streaming pops tiles in late on Linux",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/110",
+    "labels": [{"name": "bug"}, {"name": "type:Streaming"}, {"name": "severity:Medium"}],
+    "body": "**Type:** Streaming  \n**Severity:** Medium  \n\n## Description\nTiles ahead of the player appear a second or so after I can already see where they should be. Windows build of the same project is fine.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Linux x86_64 |\n| GPU | AMD Radeon RX 6700 |\n| Draw Calls | 844 |\n| Entities | 1203 |\n| Triangles | 2210044 |\n| Scene | scenes/desert.enjin |\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 111,
+    "title": "[Bug] Level streaming pops tiles late (Linux, v0.9.2)",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/111",
+    "labels": [{"name": "bug"}, {"name": "type:Streaming"}, {"name": "severity:Low"}],
+    "body": "**Type:** Streaming  \n**Severity:** Low  \n\n## Description\nStreaming tiles load visibly late when driving fast. Linux only as far as I can tell.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Linux x86_64 |\n| Draw Calls | 790 |\n| Entities | 1190 |\n| Triangles | 2008811 |\n| Scene | scenes/desert.enjin |\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 112,
+    "title": "[Bug] Level streaming unloads tiles behind the player too early",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/112",
+    "labels": [{"name": "bug"}, {"name": "type:Streaming"}, {"name": "severity:Medium"}],
+    "body": "**Type:** Streaming  \n**Severity:** Medium  \n\n## Description\nTurning the camera around shows the tile I just left already gone. The unload radius seems smaller than the load radius.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Windows 11 |\n| Draw Calls | 801 |\n| Entities | 1188 |\n| Triangles | 1998210 |\n| Scene | scenes/desert.enjin |\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 113,
+    "title": "[Bug] Editor goes black after resizing the window",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/113",
+    "labels": [{"name": "bug"}, {"name": "type:Rendering"}, {"name": "severity:High"}],
+    "body": "**Type:** Rendering  \n**Severity:** High  \n\n## Description\nDrag the window edge a few times and the whole editor turns black. Menus still respond.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Windows 11 |\n| GPU | Intel Arc A770 |\n| Draw Calls | 120 |\n| Entities | 30 |\n| Triangles | 40211 |\n\n<details><summary>Console Log (last 4 lines)</summary>\n\n```\n[INFO] [Window] Resize 1920x1040 -> 1600x900\n[INFO] [Renderer] Recreating swapchain\n[ERROR] [Renderer] vkQueueSubmit failed: VK_ERROR_DEVICE_LOST\n[WARN] [Renderer] Skipping frame\n```\n</details>\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 114,
+    "title": "[Bug] Docking the viewport into a new panel loses the whole frame",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/114",
+    "labels": [{"name": "bug"}, {"name": "type:Rendering"}, {"name": "severity:High"}],
+    "body": "**Type:** Rendering  \n**Severity:** High  \n\n## Description\nUndock the Scene viewport and dock it on the right. The editor stops drawing. Only a restart brings it back.\n\n## Diagnostics\n| Metric | Value |\n|---|---|\n| Engine | 0.9.2 |\n| Platform | Windows 11 |\n| GPU | Intel Arc A750 |\n| Draw Calls | 118 |\n| Entities | 30 |\n| Triangles | 40211 |\n\n<details><summary>Console Log (last 3 lines)</summary>\n\n```\n[INFO] [Renderer] Recreating swapchain\n[ERROR] [Renderer] vkQueueSubmit failed: VK_ERROR_DEVICE_LOST\n[WARN] [Renderer] Skipping frame\n```\n</details>\n\n\n---\n*Submitted from TEGE Editor*\n"
+  },
+  {
+    "number": 115,
+    "title": "Add a Yarn export for dialogue trees",
+    "html_url": "https://github.com/MartyChouette/TEGE/issues/115",
+    "labels": [{"name": "enhancement"}],
+    "body": "Import works. It would help writers to round-trip the tree back out to .yarn after editing nodes in the graph."
+  }
+]

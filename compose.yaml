@@ -1,0 +1,44 @@
+# Two services: a local Ollama for the open-weight path, and the triage tool pointed at it.
+#
+#   docker compose run --rm ollama-pull        # once, fetch the model
+#   docker compose run --rm triage run --provider ollama --no-investigate
+#
+# With the editor running on the host and MCP enabled, drop --no-investigate. The tool
+# reaches the editor through host.docker.internal; on Linux that name comes from the
+# extra_hosts line below.
+
+services:
+  ollama:
+    image: ollama/ollama:0.12.3
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+
+  ollama-pull:
+    image: ollama/ollama:0.12.3
+    depends_on: [ollama]
+    volumes:
+      - ollama:/root/.ollama
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull", "qwen3:14b"]
+    profiles: ["setup"]
+
+  triage:
+    build: .
+    depends_on: [ollama]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+      TEGE_MCP_URL: http://host.docker.internal:8971/mcp
+      TRIAGE_REPO: ${TRIAGE_REPO:-MartyChouette/TEGE}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./reports:/app/reports
+    profiles: ["run"]
+
+volumes:
+  ollama:

@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e .[dev]
+      - run: ruff check .
+      - run: pytest -q
+      # The grouping heuristic is scored on every push. The threshold is the floor it
+      # already clears; a change that drops below it fails the build.
+      - run: enjin-triage eval --min-f1 0.85 --verbose
+
+  docker:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build -t enjin-triage .
+      - run: docker run --rm enjin-triage eval --min-f1 0.85
